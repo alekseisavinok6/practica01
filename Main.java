@@ -1,16 +1,25 @@
+/*
+Autor: Aleksei Savinok
+Fecha: 17/01/24
+Objetivo: Calcular el IMC de una persona
+*/
+
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        		// calcular el IMC de una persona
-		
-		Scanner scanner=new Scanner(System.in);
-		
+
+		//declaracion de variables
+		Scanner scanner=new Scanner(System.in).useLocale(Locale.US);
+		Persona persona1;
 		String nombre;
 		int edad;
 		double altura;
 		double peso;
 		double imc;
+		
+		//formulario de persona
 		
 		System.out.println("Formulario de Persona");
 		System.out.println("=====================");
@@ -23,8 +32,13 @@ public class Main {
 		altura=scanner.nextDouble();
 		System.out.println("Peso: ");
 		peso=scanner.nextDouble();
-		imc=peso/(altura*altura);
-		System.out.println("El índice de masa corporal de "+nombre+" es "+imc);
+		//fin de formulario de persona
+		
+		persona1=new Persona(nombre, edad, altura, peso);
+		
+		//salida de datos
+		System.out.println(persona1.toSaludo());
+
     }
     
 }
